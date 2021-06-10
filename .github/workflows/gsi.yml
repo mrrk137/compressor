@@ -29,7 +29,8 @@ jobs:
          run: |
               cd file
               ls
-              gzip -dc < $FILE_NAME.gz > /final/file
+              gzip -dc $FILE_NAME.gz
+              ls
               cd final
               ls
        
