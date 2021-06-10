@@ -38,11 +38,15 @@ jobs:
               cd final
               ls
        
-       - name: Compress and Upload 
+       - name: Compress file
          run: |
               cd file/final
               ls
               tar cJf $FILE_NAME.xz *
+
+       - name: Upload file
+         run: |
+              cd file/final
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
