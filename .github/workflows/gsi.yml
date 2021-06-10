@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
-  FILE_NAME: test.zip
+  FILE_URL: https://github.com/nitanmarcel/Silky-Gboard/releases/download/v0.4/gboard-silk-theme-0.4.zip 
+  FILE_NAME: test
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
        - name: Download & Decompress File
          run: |
               mkdir -p file
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
               cd file
               mkdir -p final
               unzip -q $FILE_NAME -d ./final
@@ -32,7 +32,7 @@ jobs:
          run: |
               cd file/final
               ls
-              xz -z *
+              xz -z -e -9 *
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
