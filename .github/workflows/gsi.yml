@@ -19,13 +19,18 @@ jobs:
            sudo apt install expect -y
            sudo apt-get install -y wget gzip
 
-       - name: Download & Decompress File
+       - name: Download File
          run: |
               mkdir -p file
               wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
               cd file
               mkdir -p final
-              gzip -dc < $FILE_NAME.gz > /final/
+       - name: Decompress File
+         run: |
+              cd file
+              ls
+              gzip -dc < $FILE_NAME.gz > /final/file
+              cd final
               ls
        
        - name: Compress and Upload 
