@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/blueline-spb2.210513.007-factory-6c2e7c7f/blueline-spb2.210513.007/image-blueline-spb2.210513.007.zip 
-  FILE_NAME: test-file.gz
+  FILE_NAME: test-file
   ZIP_NAME: file.zip
   TZ: Asia/Kolkata
 jobs:
@@ -29,8 +29,8 @@ jobs:
        - name: Compress and upload 
          run: |
               cd file
-              ls
               gzip -f -r $ZIP_NAME > $FILE_NAME
+              ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
@@ -40,7 +40,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME\r\"
+              send \"put $FILE_NAME.gz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
