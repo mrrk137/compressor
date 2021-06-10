@@ -37,7 +37,8 @@ jobs:
          run: |
               cd file/final
               ls
-              tar cJf $FILE_NAME.tar.xz *
+              xz -h
+              xz $FILE_NAME.tar.xz *
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
@@ -48,7 +49,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.tar.xz\r\"
+              send \"put $FILE_NAME.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
