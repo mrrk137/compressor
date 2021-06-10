@@ -28,7 +28,7 @@ jobs:
        - name: Compress and upload 
          run: |
               cd file
-              gzip -f -r $FILE_NAME
+              compact $FILE_NAME
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
