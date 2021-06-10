@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
-  FILE_NAME: test-file.zip
+  FILE_NAME: test.zip
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -19,4 +19,33 @@ jobs:
            sudo -E apt-get update
            sudo apt install expect -y
            sudo apt-get install -y wget gzip
-           unzip -h
+
+       - name: Download & Decompress File
+         run: |
+              mkdir -p file
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME"
+              cd file
+              mkdir -p final
+              unzip -q $FILE_NAME -d ./final
+       
+       - name: Compress and Upload 
+         run: |
+              cd file/final
+              ls
+              xz -z *
+              ls
+              expect -c " 
+              spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
+              expect \"yes/no\"
+              send \"yes\r\"
+              expect \"Password\"        
+              send \"${{ secrets.SFPASS }}\r\"
+              expect \"sftp> \"
+              send \"cd ${{ secrets.SFDIR }}\r\"
+              set timeout -1
+              send \"put $FILE_NAME.xz\r\"
+              expect \"Uploading\"
+              expect \"100%\"
+              expect \"sftp>\"
+              send \"bye\r\"
+              interact"
