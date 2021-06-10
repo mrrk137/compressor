@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
-  FILE_NAME: file
+  FILE_NAME: test-file
   TZ: Asia/Kolkata
 jobs:
   build:
