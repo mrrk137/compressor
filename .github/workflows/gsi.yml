@@ -3,8 +3,9 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3-b2-S-20210610-RK137SGSI.zip 
-  FILE_NAME: Pixel3-b2-S
+  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
+  FILE_NAME: Floko-tl-c
+  F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -37,8 +38,13 @@ jobs:
          run: |
               cd file/final
               ls
-              tar cJf $FILE_NAME.xz *
+              xz *
               ls
+              mv $F_NAME.xz $FILE_NAME.xz
+
+       - name: Upload 
+         run: |
+              cd file/final
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
