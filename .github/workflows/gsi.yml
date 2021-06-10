@@ -22,10 +22,11 @@ jobs:
        - name: Download & Decompress File
          run: |
               mkdir -p file
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
               cd file
               mkdir -p final
-              unzip -q $FILE_NAME -d ./final
+              gzip -d $FILE_NAME
+              ls
        
        - name: Compress and Upload 
          run: |
