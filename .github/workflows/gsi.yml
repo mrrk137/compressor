@@ -22,7 +22,7 @@ jobs:
            sudo apt-get install -y wget gzip
        
        - name: Download Rom & Generate GSI
-         run: wget -U "Mozilla/5.0" $FILE_URL -O "$ZIP_NAME"
+         run: wget -U "Mozilla/5.0" $FILE_URL -O "/$ZIP_NAME"
        
        - name: Zip AB and upload 
          run: |
