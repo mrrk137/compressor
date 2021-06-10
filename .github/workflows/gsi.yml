@@ -31,6 +31,8 @@ jobs:
               ls
               gzip -d $FILE_NAME.gz
               ls
+              cd $FILE_NAME
+              ls
               cd final
               ls
        
