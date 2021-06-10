@@ -29,6 +29,6 @@ jobs:
          run: |
               cd file
               ls
-              xz -h
+              xz -z $FILE_NAME
               ls
               
