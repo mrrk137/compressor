@@ -30,6 +30,8 @@ jobs:
        
        - name: Compress and Upload 
          run: |
+              gzip -h
+              tar -h
               cd file/final
               ls
               tar cJf $FILE_NAME.tar.xz *
