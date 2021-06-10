@@ -29,20 +29,6 @@ jobs:
          run: |
               cd file
               ls
-              xz $FILE_NAME
+              xz -h
               ls
-              expect -c " 
-              spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
-              expect \"yes/no\"
-              send \"yes\r\"
-              expect \"Password\"        
-              send \"${{ secrets.SFPASS }}\r\"
-              expect \"sftp> \"
-              send \"cd ${{ secrets.SFDIR }}\r\"
-              set timeout -1
-              send \"put $FILE_NAME.xz\r\"
-              expect \"Uploading\"
-              expect \"100%\"
-              expect \"sftp>\"
-              send \"bye\r\"
-              interact"
+              
