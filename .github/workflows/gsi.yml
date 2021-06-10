@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
-  FILE_NAME: floko-test
+  FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
+  FILE_NAME: Dot-t-AB-11-c-RK137GSI
   TZ: Asia/Kolkata
 jobs:
   build:
