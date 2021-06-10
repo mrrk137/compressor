@@ -25,12 +25,13 @@ jobs:
               wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
               cd file
               mkdir -p final
-              gzip -d $FILE_NAME
+              gzip -dc < $FILE_NAME.gz > /final/
               ls
        
        - name: Compress and Upload 
          run: |
               cd file/final
+              ls
               tar cJf $FILE_NAME.tar.xz *
               ls
               expect -c " 
