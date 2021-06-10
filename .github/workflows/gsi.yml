@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
+  FILE_URL: https://github.com/nitanmarcel/Silky-Gboard/releases/download/v0.4/gboard-silk-theme-0.4.zip 
   FILE_NAME: test-file.zip
   TZ: Asia/Kolkata
 jobs:
