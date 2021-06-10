@@ -14,7 +14,7 @@ jobs:
        - name: Checkout
          uses: actions/checkout@master
        
-       - name: Clean Up
+       - name: Setup
          run: |
            sudo -E apt-get update
            sudo apt install expect -y
@@ -25,10 +25,11 @@ jobs:
               mkdir -p file
               wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME"
        
-       - name: Compress and upload 
+       - name: Compress and Upload 
          run: |
               cd file
-              xz test
+              ls
+              xz $FILE_NAME
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
@@ -39,7 +40,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put test.xz\r\"
+              send \"put $FILE_NAME.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
