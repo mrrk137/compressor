@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://github.com/nitanmarcel/Silky-Gboard/releases/download/v0.4/gboard-silk-theme-0.4.zip 
-  FILE_NAME: final-test
+  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
+  FILE_NAME: floko-test
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -16,7 +16,6 @@ jobs:
        
        - name: Setup
          run: |
-           sudo -E apt-get update
            sudo apt install expect -y
            sudo apt-get install -y wget gzip
 
