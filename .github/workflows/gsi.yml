@@ -31,11 +31,17 @@ jobs:
               ls
               gzip -d $FILE_NAME.gz
               ls
+              mv $FILE_NAME $FILE_NAME.img
+              ls
+              mv $FILE_NAME.img final
+              cd final
+              ls
        
        - name: Compress and Upload 
          run: |
               cd file
               ls
+              Bhtar cJf $FILE_NAME.xz *
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
