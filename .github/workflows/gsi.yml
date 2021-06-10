@@ -4,8 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/blueline-spb2.210513.007-factory-6c2e7c7f/blueline-spb2.210513.007/image-blueline-spb2.210513.007.zip 
-  FILE_NAME: test-file
-  ZIP_NAME: file.zip
+  FILE_NAME: test-file.zip
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -24,12 +23,12 @@ jobs:
        - name: Download File
          run: |
               mkdir -p file
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$ZIP_NAME"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME"
        
        - name: Compress and upload 
          run: |
               cd file
-              gzip -f -r $ZIP_NAME > $FILE_NAME
+              gzip -f -r $FILE_NAME
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
