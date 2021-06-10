@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
-  FILE_NAME: test-file
+  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3-b2-S-20210610-RK137SGSI.zip 
+  FILE_NAME: Pixel3-b2-S
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
          run: |
               cd file/final
               ls
-              xz *
+              tar cJf $FILE_NAME.xz *
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
