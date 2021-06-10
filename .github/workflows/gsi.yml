@@ -5,6 +5,7 @@ on: [push]
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
   FILE_NAME: Dot-c
+  F_NAME: $FILE_NAME.img
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -31,17 +32,17 @@ jobs:
               ls
               gzip -d $FILE_NAME.gz
               ls
-              mv $FILE_NAME $FILE_NAME.img
+              mv $FILE_NAME $F_NAME.img
               ls
-              mv $FILE_NAME.img final
+              mv $F_NAME.img final
               cd final
               ls
        
        - name: Compress and Upload 
          run: |
-              cd file
+              cd file/final
               ls
-              Bhtar cJf $FILE_NAME.xz *
+              tar cJf $FILE_NAME.xz *
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
@@ -51,7 +52,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME\r\"
+              send \"put $FILE_NAME.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
