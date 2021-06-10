@@ -31,15 +31,10 @@ jobs:
               ls
               gzip -d $FILE_NAME.gz
               ls
-              copy $FILE_NAME /final
-              cd final
-              ls
        
        - name: Compress and Upload 
          run: |
-              cd file/final
-              ls
-              tar cJf $FILE_NAME.tar.xz *
+              cd file
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
@@ -50,7 +45,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.tar.xz\r\"
+              send \"put $FILE_NAME\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
