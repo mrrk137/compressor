@@ -5,7 +5,7 @@ on: [push]
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/blueline-spb2.210513.007-factory-6c2e7c7f/blueline-spb2.210513.007/image-blueline-spb2.210513.007.zip 
   FILE_NAME: test-file.gz
-  XIP_NAME: update.zip
+  ZIP_NAME: update.zip
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -26,6 +26,8 @@ jobs:
        
        - name: Zip AB and upload 
          run: |
+              pwd
+              ls
               gzip -r update.zip > $FILE_NAME
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
