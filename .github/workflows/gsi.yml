@@ -21,10 +21,13 @@ jobs:
            sudo apt install expect -y
            sudo apt-get install -y wget gzip
        
-       - name: Download Rom & Generate GSI
-         run: wget -U "Mozilla/5.0" $FILE_URL -O "/$ZIP_NAME"
+       - name: Download File
+         run: |
+              pwd
+              ls
+              wget -U "Mozilla/5.0" $FILE_URL -O "/$ZIP_NAME"
        
-       - name: Zip AB and upload 
+       - name: Compress and upload 
          run: |
               pwd
               ls
