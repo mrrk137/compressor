@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
-  FILE_NAME: Dot-c
+  FILE_NAME: file
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -17,20 +17,19 @@ jobs:
        - name: Setup
          run: |
            sudo apt install expect -y
-           sudo apt-get install -y wget gzip
+           sudo apt-get install -y wget
 
        - name: Download File
          run: |
               mkdir -p file
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
               cd file
               mkdir -p final
        - name: Decompress File
          run: |
               cd file
               ls
-              gzip -d $FILE_NAME.gz
-              ls
+              unzip -q $FILE_NAME -d ./final
               cd final
               ls
        
