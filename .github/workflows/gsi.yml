@@ -24,8 +24,9 @@ jobs:
        - name: Download File
          run: |
               pwd
+              mkdir -p file
               ls
-              wget -U "Mozilla/5.0" $FILE_URL -O "/$ZIP_NAME"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$ZIP_NAME"
        
        - name: Compress and upload 
          run: |
