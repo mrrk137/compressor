@@ -37,8 +37,7 @@ jobs:
          run: |
               cd file/final
               ls
-              xz -h
-              xz $FILE_NAME.tar.xz *
+              xz *
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
