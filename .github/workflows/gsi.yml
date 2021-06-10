@@ -32,9 +32,9 @@ jobs:
               ls
               gzip -d $FILE_NAME.gz
               ls
-              mv $FILE_NAME $F_NAME.img
+              mv $FILE_NAME $F_NAME
               ls
-              mv $F_NAME.img final
+              mv $F_NAME final
               cd final
               ls
        
