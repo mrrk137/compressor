@@ -18,7 +18,7 @@ jobs:
          run: |
            sudo -E apt-get update
            sudo apt install expect -y
-           sudo apt-get install -y wget gzip xz
+           sudo apt-get install -y wget gzip
        
        - name: Download File
          run: |
@@ -28,7 +28,7 @@ jobs:
        - name: Compress and upload 
          run: |
               cd file
-              compact $FILE_NAME
+              xz test
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
@@ -39,7 +39,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.gz\r\"
+              send \"put test.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
