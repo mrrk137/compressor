@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://github.com/nitanmarcel/Silky-Gboard/releases/download/v0.4/gboard-silk-theme-0.4.zip 
-  FILE_NAME: test
+  FILE_NAME: final-test
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -30,11 +30,8 @@ jobs:
        
        - name: Compress and Upload 
          run: |
-              gzip -h
-              tar --help
               cd file/final
-              ls
-              tar cJf $FILE_NAME.tar.xz *
+              tar cJf --recursion $FILE_NAME.tar.xz *
               ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
