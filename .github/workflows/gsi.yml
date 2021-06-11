@@ -17,13 +17,13 @@ jobs:
        
        - name: Setup
          run: |
-           sudo apt install expect wget aria2 -y
+           sudo apt install expect aria2 -y
 
        - name: Download File
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -h
+              aria2c -o "file/$FILE_NAME.zip" $FILE_URL
 
        - name: Decompress File
          run: |
