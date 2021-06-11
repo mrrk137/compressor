@@ -37,7 +37,7 @@ jobs:
        
        - name: Compress File
          run: |
-              cd file/final
+              cd file/final/SGSI
               ls
               echo "Compressing your file. wait... it can take some minutes"
               xz -fev9 *
@@ -46,7 +46,7 @@ jobs:
 
        - name: Upload File
          run: |
-              cd file/final
+              cd file/final/SGSI
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
