@@ -29,24 +29,22 @@ jobs:
          run: |
               cd file
               ls
-              mkdir -p final
               echo "Decompressing your file. wait... it will take some seconds"
-              unzip -q $FILE_NAME -d ./final
-              cd final/SGSI
+              unzip -q $FILE_NAME
+              cd SGSI
               ls
        
        - name: Compress File
          run: |
-              cd file/final/SGSI
+              cd file/SGSI
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9T20 *
+              xz -fev9T9 * > $FILE_NAME.xz
               ls
-              mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload File
          run: |
-              cd file/final
+              cd file/
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
