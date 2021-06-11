@@ -3,9 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip
-  FILE_NAME: Floko-t20t
-  F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
+  FILE_URL: https://mirror.rahul137.workers.dev/TFMNSKMHD%20%282021%29%20%20FILMYZILLA.TECH%20480p%20HEVC%20HDRip%20Hindi%20S02E01T04%20x265%20AAC%20MSub.mkv
+  FILE_NAME: The-Family-Man-S2-E1-4
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -23,21 +22,11 @@ jobs:
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -o "file/$FILE_NAME.zip" $FILE_URL
-
-       - name: Decompress File
-         run: |
-              cd file
-              ls
-              mkdir -p final
-              echo "Decompressing your file. wait... it will take some seconds"
-              unzip -q $FILE_NAME -d ./final
-              cd final
-              ls
+              aria2c $FILE_URL
        
        - name: Compress File
          run: |
-              cd file/final
+              cd file
               ls
               echo "Compressing your file. wait... it can take some minutes"
               xz -cfev9 * > $FILE_NAME.xz
@@ -45,7 +34,7 @@ jobs:
 
        - name: Upload File
          run: |
-              cd file/final
+              cd file
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
