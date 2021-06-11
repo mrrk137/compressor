@@ -40,7 +40,7 @@ jobs:
               cd file/final/SGSI
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9T20 system.img
+              xz -fev9T20 *
               ls
               mv $F_NAME.xz $FILE_NAME.xz
 
