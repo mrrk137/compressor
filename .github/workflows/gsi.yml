@@ -38,6 +38,10 @@ jobs:
          run: |
               cd file/SGSI
               ls
+              mkdir -p final
+              mv system.img final
+              cd final
+              ls
               echo "Compressing your file. wait... it can take some minutes"
               xz -fev9T9 * > $FILE_NAME.xz
               ls
