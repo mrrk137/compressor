@@ -17,13 +17,13 @@ jobs:
        
        - name: Setup
          run: |
-           sudo apt install expect wget gzip -y
+           sudo apt install expect wget gzip aria2 -y
 
        - name: Download File
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
+              aria2c -o "file/$FILE_NAME.gz"  $FILE_URL
 
        - name: Decompress File
          run: |
