@@ -17,7 +17,7 @@ jobs:
        
        - name: Setup
          run: |
-           sudo apt install expect xzip aria2 -y
+           sudo apt install expect xz-utils aria2 -y
 
        - name: Download File
          run: |
@@ -30,21 +30,15 @@ jobs:
               cd file
               ls
               echo "Decompressing your file. wait... it will take some seconds"
-              xz -dvT20 $FILE_NAME.xz
-              ls
-              mv $FILE_NAME $F_NAME
-              ls
-              mkdir -p final
-              mv $F_NAME final
-              cd final
+              unxz $FILE_NAME.xz
               ls
        
        - name: Compress File
          run: |
-              cd file/final
+              cd file
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              zip -r $FILE_NAME $F_NAME
+              xz -cfev9 * > $FILE_NAME-c.xz
               ls
 
        - name: Upload File
