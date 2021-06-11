@@ -40,7 +40,7 @@ jobs:
               cd file/final/SGSI
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9T20 *.img > $FILE_NAME.xz
+              xz -cfev9T20 system.img > $FILE_NAME.xz
               ls
 
        - name: Upload File
