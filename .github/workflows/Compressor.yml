@@ -30,7 +30,7 @@ jobs:
               cd file
               ls
               echo "Decompressing your file. wait... it will take some seconds"
-              unxz $FILE_NAME.xz
+              tar -xvf $FILE_NAME.xz
               ls
               cd $FILE_NAME
        
