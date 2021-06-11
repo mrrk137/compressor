@@ -3,9 +3,9 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
-  FILE_NAME: Dot-c
-  F_NAME: Dot-t-AB-11-20210610-RK137GSI.img
+  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-c-e9.xz 
+  FILE_NAME: Floko-dct
+  F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -23,14 +23,14 @@ jobs:
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
+              wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.xz"
 
        - name: Decompress File
          run: |
               cd file
               ls
               echo "Decompressing your file. wait... it will take some seconds"
-              gzip -dv $FILE_NAME.gz
+              xz -dvT20 $FILE_NAME.xz
               ls
               mv $FILE_NAME $F_NAME
               ls
