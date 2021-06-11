@@ -3,9 +3,9 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-c-e9.xz 
-  FILE_NAME: Floko-dct
-  F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
+  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3-b2-S-RK137SGSI.xz 
+  FILE_NAME: Pixel3-b2-S-ct
+  F_NAME: Pixel3-b2-S-RK137SGSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9T20 * > $FILE_NAME.xz
+              zip -r $FILE_NAME $F_NAME
               ls
 
        - name: Upload File
@@ -61,7 +61,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.xz\r\"
+              send \"put $FILE_NAME.zip\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
