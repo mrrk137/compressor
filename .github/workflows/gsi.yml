@@ -32,7 +32,7 @@ jobs:
               mkdir -p final
               echo "Decompressing your file. wait... it will take some seconds"
               unzip -q $FILE_NAME -d ./final
-              cd final
+              cd final/SGSI
               ls
        
        - name: Compress File
@@ -40,13 +40,12 @@ jobs:
               cd file/final/SGSI
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9 *
+              xz -cfev9T20 * > $FILE_NAME.xz
               ls
-              mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload File
          run: |
-              cd file/final/SGSI
+              cd file/final
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
