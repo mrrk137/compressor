@@ -17,14 +17,13 @@ jobs:
        
        - name: Setup
          run: |
-           sudo apt install expect wget aria2 axel -y
+           sudo apt install expect wget aria2 -y
 
        - name: Download File
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -o $FILE_NAME.zip  $FILE_URL
-              axel -vc -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
+              aria2c -h
 
        - name: Decompress File
          run: |
