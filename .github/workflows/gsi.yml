@@ -34,7 +34,7 @@ jobs:
               cd final
               ls
        
-       - name: Compress and Upload 
+       - name: Compress File
          run: |
               cd file/final
               ls
@@ -42,7 +42,7 @@ jobs:
               ls
               mv $F_NAME.xz $FILE_NAME.xz
 
-       - name: Upload 
+       - name: Upload File
          run: |
               cd file/final
               expect -c " 
