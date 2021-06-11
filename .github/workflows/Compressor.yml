@@ -31,7 +31,7 @@ jobs:
               ls
               echo "Decompressing your file. wait... it will take some seconds"
               unxz $FILE_NAME.xz
-              l
+              ls
               cd $FILE_NAME
        
        - name: Compress File
