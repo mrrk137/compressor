@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip 
-  FILE_NAME: Floko-tl-c
+  FILE_NAME: Floko-tl-c-e9
   F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
   TZ: Asia/Kolkata
 jobs:
@@ -38,7 +38,7 @@ jobs:
          run: |
               cd file/final
               ls
-              xz *
+              xz -fev9 *
               ls
               mv $F_NAME.xz $FILE_NAME.xz
 
