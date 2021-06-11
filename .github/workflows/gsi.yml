@@ -44,9 +44,8 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9 *
+              xz -fev9T20 * > $FILE_NAME.xz
               ls
-              mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload File
          run: |
