@@ -23,7 +23,8 @@ jobs:
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              axel -n $(nproc) -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
+              aria2 -h
+              axel -vc -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.zip"
 
        - name: Decompress File
          run: |
