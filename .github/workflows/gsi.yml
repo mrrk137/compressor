@@ -22,17 +22,19 @@ jobs:
        - name: Download File
          run: |
               mkdir -p file
+              echo "Downloading your file. wait... it can take some seconds/minutes"
               wget -U "Mozilla/5.0" $FILE_URL -O "file/$FILE_NAME.gz"
-              cd file
-              mkdir -p final
+
        - name: Decompress File
          run: |
               cd file
               ls
+              echo "Decompressing your file. wait... it will take some seconds"
               gzip -dv $FILE_NAME.gz
               ls
               mv $FILE_NAME $F_NAME
               ls
+              mkdir -p final
               mv $F_NAME final
               cd final
               ls
@@ -41,12 +43,16 @@ jobs:
          run: |
               cd file/final
               ls
-              xz -ev9 *
+              echo "Compressing your file. wait... it can take some minutes"
+              xz -fev9 *
+              ls
               mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload File
          run: |
               cd file/final
+              echo "Uploading your file. wait... it can take some seconds/minutes"
+              ls
               expect -c " 
               spawn sftp ${{ secrets.SFUSER }}@frs.sourceforge.net
               expect \"yes/no\"
