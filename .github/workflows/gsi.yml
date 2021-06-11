@@ -30,7 +30,7 @@ jobs:
          run: |
               cd file
               ls
-              gzip -dv $FILE_NAME.gz ./final
+              gzip -dv $FILE_NAME.gz > /final
               ls
               mv $FILE_NAME $F_NAME
               ls
@@ -38,14 +38,14 @@ jobs:
               cd final
               ls
        
-       - name: Compress file
+       - name: Compress File
          run: |
               cd file/final
               ls
               xz -ev9 *
               mv $F_NAME.xz $FILE_NAME.xz
 
-       - name: Upload file
+       - name: Upload File
          run: |
               cd file/final
               expect -c " 
