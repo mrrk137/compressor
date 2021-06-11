@@ -30,9 +30,9 @@ jobs:
               cd file
               ls
               echo "Decompressing your file. wait... it will take some seconds"
-              tar -xvf $FILE_NAME.xz
+              unxz $FILE_NAME.xz
               ls
-              cd $FILE_NAME
+              
        
        - name: Compress File
          run: |
