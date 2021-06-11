@@ -38,17 +38,12 @@ jobs:
          run: |
               cd file/SGSI
               ls
-              mkdir -p final
-              mv system.img final
-              cd final
-              ls
-              echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9T20 * > $FILE_NAME.xz
+              xz -cfev9T9 * > $FILE_NAME.xz
               ls
 
        - name: Upload File
          run: |
-              cd file/SGSI/final
+              cd file/SGSI
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
