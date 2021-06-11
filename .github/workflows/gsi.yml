@@ -29,7 +29,7 @@ jobs:
          run: |
               cd file
               ls
-              gzip -dv $FILE_NAME.gz > /final
+              gzip -dv $FILE_NAME.gz
               ls
               mv $FILE_NAME $F_NAME
               ls
