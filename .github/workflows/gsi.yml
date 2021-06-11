@@ -5,7 +5,7 @@ on: [push]
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
   FILE_NAME: Dot-c
-  F_NAME: $FILE_NAME.img
+  F_NAME: Dot-t-AB-11-20210610-RK137GSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
          run: |
               cd file
               ls
-              gzip -d $FILE_NAME.gz
+              gzip -dv $FILE_NAME.gz ./final
               ls
               mv $FILE_NAME $F_NAME
               ls
@@ -42,7 +42,8 @@ jobs:
          run: |
               cd file/final
               ls
-              tar cJf $FILE_NAME.xz *
+              xz -ev9 *
+              mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload file
          run: |
