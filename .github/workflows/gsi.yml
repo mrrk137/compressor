@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip
-  FILE_NAME: Floko-t3
+  FILE_NAME: Floko-t20
   F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
   TZ: Asia/Kolkata
 jobs:
@@ -40,9 +40,8 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9T9 *
+              xz -cfev9T20 * > $FILE_NAME.xz
               ls
-              mv $F_NAME.xz $FILE_NAME.xz
 
        - name: Upload File
          run: |
