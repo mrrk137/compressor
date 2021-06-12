@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL:
+  FILE_URL: https://mirror.rahul137.workers.dev/alpha.gz
   FILE_NAME: 
   TZ: Asia/Kolkata
 jobs:
