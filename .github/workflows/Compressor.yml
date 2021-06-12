@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/alpha.gz
+  FILE_URL: https://mirror.rahul137.workers.dev/CherishOS-2.6-AB-11-20210611-RK137GSI.img.gz
   FILE_NAME: 
   TZ: Asia/Kolkata
 jobs:
