@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Alpha.gz 
-  FILE_NAME: alpha-c
+  FILE_NAME: alpha-c2
   F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
@@ -44,7 +44,7 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.xz
+              xz -cfev9 * > $FILE_NAME.apk.xz
               ls
 
        - name: Upload File
