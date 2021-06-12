@@ -4,8 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Pixel3-b2-S-20210610-RK137SGSI.zip 
-  FILE_NAME: Pixel3-b2-S-RK137SGSI
-  F_NAME: system.img
+  FILE_NAME: Pixel3-b2-S-RK137SGSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
