@@ -3,9 +3,9 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/CherishOS-2.6-AB-11-20210611-RK137GSI.img.gz 
-  FILE_NAME: CherishOS-2.6-c
-  F_NAME: CherishOS-2.6-AB-11-20210610-RK137GSI.img
+  FILE_URL: https://mirror.rahul137.workers.dev/Alpha.gz 
+  FILE_NAME: alpha-c
+  F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
   build:
