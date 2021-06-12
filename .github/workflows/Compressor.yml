@@ -16,7 +16,7 @@ jobs:
        
        - name: Setup
          run: |
-           sudo apt install expect wget gzip aria2 -y
+           sudo apt install expect gzip aria2 -y
 
        - name: Download File
          run: |
@@ -26,15 +26,19 @@ jobs:
               echo "Enter url of file to download"
               exit 1;
               else echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c  $FILE_URL;
+              aria2c -c -m 0 $FILE_URL;
               fi
 
        - name: Decompress File
          run: |
               cd file
               ls
+              if [ -f *.gz ]; then
               echo "Decompressing your file. wait... it will take some seconds"
-              gzip -dv *.gz
+              gzip -dv *.gz;
+              else echo "File is not a gzip!"
+              exit 1;
+              fi
               ls
        
        - name: Compress File
@@ -50,7 +54,7 @@ jobs:
 
        - name: Upload File
          run: |
-              cd file/FINAL
+              cd file
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
