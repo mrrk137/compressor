@@ -5,7 +5,6 @@ on: [push]
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/alpha.zip
   FILE_NAME: Alpha.apk
-  F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
          run: |
               mkdir -p file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -o "file/$FILE_NAME.zip" $FILE_URL
+              aria2c $FILE_URL
 
        - name: Decompress File
          run: |
@@ -31,7 +30,7 @@ jobs:
               ls
               mkdir -p final
               echo "Decompressing your file. wait... it will take some seconds"
-              unzip -q $FILE_NAME -d ./final
+              unzip -d ./final
               cd final
               ls
        
@@ -40,7 +39,7 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.xz
+              xz -fev9 *
               ls
 
        - name: Upload File
@@ -57,7 +56,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.xz\r\"
+              send \"put *.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
