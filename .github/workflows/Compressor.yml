@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/alpha.zip
-  FILE_NAME: alpha-c
+  FILE_NAME: Alpha_Backup_Pro_v30.0.2_Mod_Apk4all.com.apk
   F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
@@ -40,7 +40,7 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.xz
+              xz -cfev9 *
               ls
 
        - name: Upload File
