@@ -21,32 +21,29 @@ jobs:
        - name: Download File
          run: |
               mkdir -p file
+              cd file
               echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -o "file/$FILE_NAME.gz"  $FILE_URL
+              aria2c  $FILE_URL
 
        - name: Decompress File
          run: |
               cd file
               ls
               echo "Decompressing your file. wait... it will take some seconds"
-              gzip -dv $FILE_NAME.gz
-              ls
-              mkdir -p final
-              mv $FILE_NAME final
-              cd final
+              gzip -dv *.gz
               ls
        
        - name: Compress File
          run: |
-              cd file/final
+              cd file
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.xz
+              xz -fev9 *
               ls
 
        - name: Upload File
          run: |
-              cd file/final
+              cd file
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
@@ -58,7 +55,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.xz\r\"
+              send \"put *.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
