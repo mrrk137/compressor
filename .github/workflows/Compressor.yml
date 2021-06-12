@@ -40,7 +40,10 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9 *
+              if [ -z "$FILE_NAME" ]; 
+              then xz -fev9 *; 
+              else xz -cfev9 * > $FILE_NAME.xz ; 
+              fi
               ls
 
        - name: Upload File
