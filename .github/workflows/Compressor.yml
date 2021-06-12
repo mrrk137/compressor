@@ -38,9 +38,9 @@ jobs:
               cd file
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              if [ -z "$FILE_NAME" ]
-              echo "NULL"
-              else echo "Not NULL"
+              if [ -z "$FILE_NAME" ]; 
+              then xz -fev9 *; 
+              else xz -cfev9 * > $FILE_NAME.xz ; 
               fi
               ls
 
