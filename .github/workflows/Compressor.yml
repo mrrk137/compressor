@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Alpha.gz 
-  FILE_NAME: alpha-c2.apk
+  FILE_URL: https://mirror.rahul137.workers.dev/Dot-t-AB-11-20210610-RK137GSI.img.gz 
+  FILE_NAME: 
   TZ: Asia/Kolkata
 jobs:
   build:
@@ -38,12 +38,15 @@ jobs:
               cd file
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -fev9 *
+              if [ -z "$FILE_NAME" ]
+              echo "NULL"
+              else echo "Not NULL"
+              fi
               ls
 
        - name: Upload File
          run: |
-              cd file
+              cd file/FINAL
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
