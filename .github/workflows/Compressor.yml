@@ -21,6 +21,7 @@ jobs:
        - name: Download File
          run: |
               mkdir -p file
+              cd file
               echo "Downloading your file. wait... it can take some seconds/minutes"
               aria2c $FILE_URL
 
