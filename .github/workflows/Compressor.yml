@@ -4,7 +4,7 @@ on: [push]
 
 env:
   FILE_URL: https://mirror.rahul137.workers.dev/Alpha.gz 
-  FILE_NAME: alpha-c2
+  FILE_NAME: alpha-c2.apk
   F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
@@ -32,10 +32,8 @@ jobs:
               echo "Decompressing your file. wait... it will take some seconds"
               gzip -dv $FILE_NAME.gz
               ls
-              mv $FILE_NAME $F_NAME
-              ls
               mkdir -p final
-              mv $F_NAME final
+              mv $FILE_NAME final
               cd final
               ls
        
@@ -44,7 +42,7 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.apk.xz
+              xz -cfev9 * > $FILE_NAME.xz
               ls
 
        - name: Upload File
