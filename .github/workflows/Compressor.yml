@@ -42,7 +42,10 @@ jobs:
               cd final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              xz -cfev9 * > $FILE_NAME.xz
+              if [ -z "$FILE_NAME" ]; 
+              then xz -fev9 *; 
+              else xz -cfev9 * > $FILE_NAME.xz ; 
+              fi
               ls
 
        - name: Upload File
@@ -59,7 +62,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FILE_NAME.xz\r\"
+              send \"put *.xz\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
