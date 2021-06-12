@@ -3,9 +3,9 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-tl-RK137GSI.zip
-  FILE_NAME: Floko-t20t
-  F_NAME: Floko-tl-AB-11-20210610-RK137GSI.img
+  FILE_URL: https://mirror.rahul137.workers.dev/alpha.zip
+  FILE_NAME: alpha-c
+  F_NAME: alpha.apk
   TZ: Asia/Kolkata
 jobs:
   build:
