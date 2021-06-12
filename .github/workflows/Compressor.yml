@@ -30,7 +30,7 @@ jobs:
               ls
               mkdir -p final
               echo "Decompressing your file. wait... it will take some seconds"
-              unzip -d ./final
+              unzip -q *.zip -d ./final
               cd final
               ls
        
