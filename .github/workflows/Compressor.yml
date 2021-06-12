@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/ImsService.apk
+  FILE_URL: https://mirror.rahul137.workers.dev/Floko-t2-RK137GSI/Floko-t-AB-11-20210612-RK137GSI.img
   FILE_NAME: 
   TZ: Asia/Kolkata
 jobs:
