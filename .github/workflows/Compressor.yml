@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Floko-t2-RK137GSI/Floko-t-AB-11-20210612-RK137GSI.img
-  FILE_NAME: 
+  FILE_URL: https://mirror.rahul137.workers.dev/aosp_arm64-exp-SPB2.210513.007-7398525-544ab725/system.img
+  FILE_NAME: Google-S-arm64-GSI.img
   TZ: Asia/Kolkata
 jobs:
   build:
