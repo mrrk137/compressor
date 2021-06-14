@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Nusantara-2.9-AB-11-20210603-RK137GSI.img
-  FILE_NAME:
+  FILE_URL: https://mirror.rahul137.workers.dev/PixelPlusUI-3.5-Arm64-AB-11-20210513-TechyMinatiGSI.img
+  FILE_NAME: PPUI-old-test.img
   TZ: Asia/Kolkata
 jobs:
   build:
