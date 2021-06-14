@@ -26,7 +26,7 @@ jobs:
               echo "Enter url of file to download"
               exit 1;
               else echo "Downloading your file. wait... it can take some seconds/minutes"
-              aria2c -c -m 0 $FILE_URL;
+              aria2c -m0 $FILE_URL;
               fi
 
        - name: Decompress File
