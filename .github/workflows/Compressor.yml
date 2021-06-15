@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/PixelPlusUI-3.5-Arm64-AB-11-20210513-TechyMinatiGSI.img
-  FILE_NAME: PPUI-old-test.img
+  FILE_URL: https://mirror.rahul137.workers.dev/Pixel5SBeta2_test-AB-S-20210615-nippongsi.img
+  FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
   build:
