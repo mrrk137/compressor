@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/VOS4.0-Live4-AB-11-(vndk28%252C30)-2021.06.15-LZY-SGSI/SGSI/system.img
-  FILE_NAME: VOS-4.0-SGSI-20210616.img
+  FILE_URL: https://mirror.rahul137.workers.dev/BGMI/com.pubg.imobile/main.15255.com.pubg.imobile.obb(vndk28%252C30)-2021.06.15-LZY-SGSI/SGSI/system.img
+  FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
   build:
