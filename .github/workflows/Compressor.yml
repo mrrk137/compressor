@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/BGMI/com.pubg.imobile/main.15255.com.pubg.imobile.obb(vndk28%252C30)-2021.06.15-LZY-SGSI/SGSI/system.img
+  FILE_URL: https://mirror.rahul137.workers.dev/BGMI/com.pubg.imobile/main.15255.com.pubg.imobile.obb
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
