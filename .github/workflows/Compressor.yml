@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/BGMI/com.pubg.imobile/main.15255.com.pubg.imobile.obb
-  FILE_NAME:
+  FILE_URL: https://mirror.rahul137.workers.dev/Pixel-S-Beta-2-For3GBPartitionUsers-SGSI-GSITutorials/system.img
+  FILE_NAME: Pixel-S-Beta-2-3GB-SGSI-GSItutorials.img
   TZ: Asia/Kolkata
 jobs:
   build:
