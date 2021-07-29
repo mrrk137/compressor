@@ -7,7 +7,7 @@ env:
   FILE_NAME: Pixel3-b2-S-RK137SGSI.img
   TZ: Asia/Kolkata
 jobs:
-  build:
+  Compress:
     runs-on: ubuntu-18.04
 
     steps:
