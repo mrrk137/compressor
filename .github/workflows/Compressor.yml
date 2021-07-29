@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/ZUI-HELIOS-25-10-GSI-AB/ErfanGSIs/output/ZUI-AB-10-20201025-HELIOSBAKERTOOLS.img
-  FILE_NAME:
+  FILE_URL: https://mirror.rahul137.workers.dev/VOS-4.0-11.0-Port-RMX1831/system.img
+  FILE_NAME: Vos-4.0-11-port.img
   TZ: Asia/Kolkata
 jobs:
   build:
