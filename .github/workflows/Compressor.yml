@@ -7,7 +7,7 @@ env:
   FILE_NAME: Vos-4.0-11-port.img
   TZ: Asia/Kolkata
 jobs:
-  build:
+  Compress:
     runs-on: ubuntu-18.04
 
     steps:
