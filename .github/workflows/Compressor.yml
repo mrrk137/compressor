@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/VOS-4.0-11.0-Port-RMX1831/system.img
-  FILE_NAME: Vos-4.0-11-port.img
+  FILE_URL: https://mirror.rahul137.workers.dev/ancient_v5.5_arm64_ab/system.img
+  FILE_NAME: Ancient-5.5-t.img
   TZ: Asia/Kolkata
 jobs:
   Compress:
