@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/ancient_v5.5_arm64_ab/system.img
-  FILE_NAME: Ancient-5.5-t.img
+  FILE_URL: https://mirror.rahul137.workers.dev/lineage-18.1-20210808_084822-UNOFFICIAL-CPH1859/vendor.new.dat.br
+  FILE_NAME: L-oss.new.dat.br
   TZ: Asia/Kolkata
 jobs:
   Compress:
