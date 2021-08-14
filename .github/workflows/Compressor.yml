@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/PPUI-3.5-AB-11-20210603-RK137GSI.img.gz
-  FILE_NAME:
+  FILE_URL: https://server.nippon.workers.dev/0://Pixel5_Beta4-AB-12-20210813-nippongsi.img.gz
+  FILE_NAME: Pixel5-12-Beta4-Nippon.img
   TZ: Asia/Kolkata
 jobs:
   Compress:
