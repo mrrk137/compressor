@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/lineage-18.1-20210808_084822-UNOFFICIAL-CPH1859/vendor.new.dat.br
-  FILE_NAME: L-oss.new.dat.br
+  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3_Beta4_vndk28-29-30-AB-12-20210814-nippongsi.img/Pixel3_Beta4_vndk28-29-30-AB-12-20210814-nippongsi.img
+  FILE_NAME: Pixel3-b4.img
   TZ: Asia/Kolkata
 jobs:
   Compress:
