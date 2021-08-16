@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://server.nippon.workers.dev/0://Pixel5_Beta4-AB-12-20210813-nippongsi.img.gz
-  FILE_NAME: Pixel5-12-Beta4-Nippon.img
+  FILE_URL: https://master.dl.sourceforge.net/project/trebleexperience/Pixel%20-%20Pixel-Beta-4%20-%20ZOLY5EPQ2Y/Pixel-Beta-4-AB-12-20210814-ErfanGSI-TrebleExp.img.gz?viasf=1
+  FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
   Compress:
