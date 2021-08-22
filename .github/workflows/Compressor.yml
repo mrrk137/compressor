@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3_Beta4_vndk28-29-30-AB-12-20210814-nippongsi.img/Pixel3_Beta4_vndk28-29-30-AB-12-20210814-nippongsi.img
-  FILE_NAME: Pixel3-b4.img
+  FILE_URL: https://mirror.rahul137.workers.dev/UMIDIGI_X_V1.0_20200509.V3.13/UMIDIGI_X_V1.0_20200509.V3.13/vendor.img
+  FILE_NAME: Umidigi-X-v.img
   TZ: Asia/Kolkata
 jobs:
   Compress:
