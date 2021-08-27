@@ -48,11 +48,13 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
+              cd META-INF
+              zip -r colt.zip *
               ls
 
        - name: Upload File
          run: |
-              cd file/final/final
+              cd file/final/META-INF
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
@@ -64,7 +66,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put *.xz\r\"
+              send \"put *.zip\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
