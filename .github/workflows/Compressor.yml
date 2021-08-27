@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/Pixel3_vndk28-AB-12-20210826-nippongsi.img.gz
+  FILE_URL: https://managedway.dl.sourceforge.net/project/nippongsi/Pixel%20-%20PixelS_Beta4.1%20-%20KZNBOAFA0H/PixelS_Beta4.1-AB-12-20210826-nippongsi.img.gz
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
