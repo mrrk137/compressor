@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/alpha.zip
+  FILE_URL: https://deac-riga.dl.sourceforge.net/project/coltos/ColtOS-v7.x/ali/ColtOS-11.0-v7.2-ali-OFFICIAL-20210824-1231.zip
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
@@ -48,15 +48,11 @@ jobs:
               cd file/final
               ls
               echo "Compressing your file. wait... it can take some minutes"
-              if [ -z "$FILE_NAME" ]; 
-              then xz -fev9 *; 
-              else xz -cfev9 * > $FILE_NAME.xz ; 
-              fi
               ls
 
        - name: Upload File
          run: |
-              cd file/final
+              cd file/final/final
               echo "Uploading your file. wait... it can take some seconds/minutes"
               ls
               expect -c " 
