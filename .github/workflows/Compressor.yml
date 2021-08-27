@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/A12-b4.1-RK137GSI.img.xz
+  FILE_URL: https://mirror.rahul137.workers.dev/Colt-7.1-CPH1859-unofficial-RK137GSI.img.xz
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
