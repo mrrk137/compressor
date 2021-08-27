@@ -3,8 +3,8 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://mirror.rahul137.workers.dev/UMIDIGI_X_V1.0_20200509.V3.13/UMIDIGI_X_V1.0_20200509.V3.13/vendor.img
-  FILE_NAME: Umidigi-X-v.img
+  FILE_URL: https://mirror.rahul137.workers.dev/A12-b4.1-RK137GSI.img.xz
+  FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
   Compress:
@@ -28,17 +28,10 @@ jobs:
               else echo "Downloading your file. wait... it can take some seconds/minutes"
               aria2c -c --max-tries=0 --max-file-not-found=0 $FILE_URL;
               fi
-       
-       - name: Compress File
-         run: |
-              cd file
-              ls
-              echo "Compressing your file. wait... it can take some minutes"
               if [ -z "$FILE_NAME" ]; 
-              then xz -fev9 *; 
-              else xz -cfev9 * > $FILE_NAME.xz ; 
+              then echo "Keeping original file name!"; 
+              else mv * $FILE_NAME ; 
               fi
-              ls
 
        - name: Upload File
          run: |
@@ -52,9 +45,9 @@ jobs:
               expect \"Password\"        
               send \"${{ secrets.SFPASS }}\r\"
               expect \"sftp> \"
-              send \"cd ${{ secrets.SFDIR }}\r\"
+              send \"cd ${{ secrets.SFDIRP }}\r\"
               set timeout -1
-              send \"put *.xz\r\"
+              send \"put *\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
