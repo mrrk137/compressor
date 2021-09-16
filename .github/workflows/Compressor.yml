@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://managedway.dl.sourceforge.net/project/nippongsi/Pixel%20-%20PixelS_Beta4.1%20-%20KZNBOAFA0H/PixelS_Beta4.1-AB-12-20210826-nippongsi.img.gz
+  FILE_URL: https://master.dl.sourceforge.net/project/gsis137/GSI/Generic%20-%20DotOS-5.2%20-%20PN6AJAANN3/DotOS-5.2-AB-11-20210916-RK137GSI.img.gz?viasf=1
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
