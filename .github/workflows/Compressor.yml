@@ -3,7 +3,7 @@ name: Compressor
 on: [push]
 
 env:
-  FILE_URL: https://master.dl.sourceforge.net/project/gsis137/GSI/Generic%20-%20DotOS-5.2%20-%20PN6AJAANN3/DotOS-5.2-AB-11-20210916-RK137GSI.img.gz?viasf=1
+  FILE_URL: https://ft2.rajeevk.workers.dev/0:/OctaviOS-2.9-AB-11-20210916-RK137GSI.img.gz
   FILE_NAME:
   TZ: Asia/Kolkata
 jobs:
